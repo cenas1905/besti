@@ -103,7 +103,7 @@ em { font-style: italic; color: var(--accent); }
 }
 .hero-content {
     position: relative; z-index: 2;
-    max-width: 700px; padding: 0 1.5rem;
+    max-width: 750px; padding: 0 1.5rem;
 }
 .hero-subtitle {
     font-size: 0.85rem; font-weight: 500;
@@ -114,19 +114,39 @@ em { font-style: italic; color: var(--accent); }
     font-family: var(--font-display);
     font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 600; line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
 }
-.hero-desc {
-    font-size: 1.1rem; color: var(--text-muted);
-    margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto;
+
+/* Hero Service Tags */
+.hero-services {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.6rem; margin-bottom: 2.5rem;
 }
+.hero-services span {
+    background: rgba(201, 169, 110, 0.12);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    color: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+.hero-services span:hover {
+    background: var(--accent);
+    color: #0e0e0e;
+}
+
 .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 .btn-main {
     background: var(--accent); color: #0e0e0e;
     padding: 0.9rem 2.2rem; border-radius: 40px;
     font-weight: 600; font-size: 0.95rem;
-    transition: all 0.3s;
+    transition: all 0.3s; display: inline-block;
+    font-family: var(--font-body);
+    border: none; cursor: pointer;
 }
 .btn-main:hover { box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-2px); }
 
@@ -171,28 +191,83 @@ em { font-style: italic; color: var(--accent); }
 /* ===== SERVICES ===== */
 .services { background: var(--bg); }
 
+/* Featured Service (Laser) */
+.service-featured {
+    display: flex; gap: 3rem;
+    max-width: 1100px; margin: 0 auto 4rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.service-featured-img {
+    flex: 1; min-width: 0;
+}
+.service-featured-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+.service-featured-text {
+    flex: 1;
+    padding: 3rem 3rem 3rem 0;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.service-featured-text h3 {
+    font-family: var(--font-display);
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.service-featured-text p {
+    color: var(--text-muted);
+    font-size: 1rem; line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.service-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+.service-features li {
+    padding: 0.4rem 0;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+/* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
     max-width: 1100px; margin: 0 auto;
 }
 .service-item {
     background: var(--bg-card);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: var(--radius);
-    padding: 2.5rem 2rem;
-    text-align: center;
+    overflow: hidden;
     transition: transform 0.4s, border-color 0.4s;
 }
-.service-item:hover { transform: translateY(-6px); border-color: var(--accent); }
-.service-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
-.service-item h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem; font-weight: 600;
-    margin-bottom: 0.8rem;
+.service-item:hover { transform: translateY(-4px); border-color: var(--accent); }
+
+.service-item-img, .service-item-img-wrap img {
+    width: 100%; height: 200px;
+    object-fit: cover;
 }
-.service-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+.service-icon-block {
+    width: 100%; height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, rgba(201,169,110,0.08) 0%, rgba(201,169,110,0.02) 100%);
+}
+.service-item-body {
+    padding: 1.5rem;
+}
+.service-item-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+.service-item-body p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
 /* ===== PORTFOLIO (Nail Gallery) ===== */
 .portfolio { background: #0a0a0a; }
@@ -216,35 +291,7 @@ em { font-style: italic; color: var(--accent); }
 }
 .portfolio-item:hover img { transform: scale(1.08); }
 
-/* ===== RESULTS (Before/After) ===== */
-.results { background: var(--bg); }
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1100px; margin: 0 auto;
-}
-.result-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    background: var(--bg-card);
-    border: 1px solid rgba(255,255,255,0.06);
-}
-.result-card img {
-    width: 100%; height: 400px;
-    object-fit: cover;
-}
-.result-label {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(0deg, rgba(14,14,14,0.9) 0%, transparent 100%);
-    font-family: var(--font-display);
-    font-size: 1.2rem; font-weight: 600;
-    color: var(--accent);
-}
-
+/* Results Video */
 .results-video {
     max-width: 700px; margin: 3rem auto 0;
     border-radius: var(--radius);
@@ -342,20 +389,93 @@ em { font-style: italic; color: var(--accent); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .service-featured {
+        flex-direction: column;
+    }
+    .service-featured-text {
+        padding: 2rem;
+    }
+    .service-featured-img img {
+        height: 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .btn-whatsapp span { display: none; }
 
     .nav-links.open {
         display: flex; flex-direction: column;
         position: absolute; top: 100%; left: 0; width: 100%;
         background: rgba(14,14,14,0.97);
+        backdrop-filter: blur(16px);
         padding: 2rem; gap: 1.5rem;
         border-bottom: 1px solid rgba(255,255,255,0.06);
     }
+    .nav-links.open a {
+        font-size: 1.1rem;
+    }
 
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 70px 5%; }
+    .section-header { margin-bottom: 2.5rem; }
+
     .hero-content h1 { font-size: 2.5rem; }
-    .result-card img { height: 300px; }
+    .hero-services span { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
+
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+
+    .services-grid { grid-template-columns: 1fr; }
+
+    .service-featured {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+    .service-featured-img img { height: 220px; }
+    .service-featured-text {
+        padding: 1.5rem;
+    }
+    .service-featured-text h3 { font-size: 1.6rem; }
+
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .footer-inner {
+        flex-direction: column; text-align: center; gap: 0.8rem;
+    }
+
+    .btn-whatsapp {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .results-video { margin-top: 2rem; }
+}
+
+@media (max-width: 480px) {
+    .navbar { padding: 1rem 4%; }
+    .logo { font-size: 1.6rem; }
+
+    .hero-content { padding: 0 1rem; }
+    .hero-content h1 { font-size: 2rem; margin-bottom: 1.2rem; }
+    .hero-subtitle { font-size: 0.7rem; letter-spacing: 3px; }
+    .hero-services span { font-size: 0.7rem; padding: 0.35rem 0.75rem; }
+    .hero-services { gap: 0.4rem; }
+
+    .btn-main, .btn-outline {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .section { padding: 60px 4%; }
+    .section-tag { font-size: 0.65rem; }
+
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-card { padding: 1.5rem; }
+
+    .instagram-link {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+    }
 }
