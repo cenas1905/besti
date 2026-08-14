@@ -1,0 +1,13 @@
+{
+  "name": "Besti Güzellik Salonu",
+  "short_name": "Besti",
+  "description": "Beşti, Defne / Hatay'da lazer epilasyon, cilt bakımı, protez tırnak ve güzellik hizmetleri.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e0e0e",
+  "theme_color": "#0e0e0e",
+  "icons": [
+    { "src": "assets/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
